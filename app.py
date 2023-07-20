@@ -1,9 +1,9 @@
-import logging
+from views.cli_view import ViewCLI
+from controllers import controller
+from models import complex_number
 
 
-logging.basicConfig(
-    level=logging.WARNING,
-    filename="app.log",
-    filemode="w",
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
+view = ViewCLI()
+model = complex_number.ComplexNumber
+controller = controller.Controller(view, model)
+controller.run()
